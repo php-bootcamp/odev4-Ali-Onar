@@ -1,10 +1,19 @@
 <?php
 
-abstract class SQL {
+abstract class SQL
+{
       use PDOConnector;
-      public $connectionStatus = false;
+      public bool $connectionStatus = false;
 
-      public function isConnected() {
+      public abstract function create(SQLQuery $query);
+      public abstract function update(SQLQuery $query);
+      public abstract function delete(SQLQuery $query);
 
+      public function setParams(array $params)
+      {
+      }
+
+      public function isConnected()
+      {
       }
 }
